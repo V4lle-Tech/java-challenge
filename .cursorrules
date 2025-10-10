@@ -1,0 +1,1 @@
+.aidocs/AGENTS.md

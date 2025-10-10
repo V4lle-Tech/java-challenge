@@ -1,0 +1,69 @@
+{
+    "name": "Java Spring Boot Development Environment",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": ".",
+        "args": {
+            "JAVA_VERSION": "21",
+            "USE_MAVEN": "true",
+            "USE_GRADLE": "false"
+        }
+    },
+    "workspaceFolder": "/workspaces",
+    "remoteUser": "coder",
+    "features": {
+        "ghcr.io/devcontainers/features/git:1": {},
+        "ghcr.io/devcontainers/features/github-cli:1": {}
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "vscjava.vscode-java-pack",
+                "vmware.vscode-spring-boot",
+                "vscjava.vscode-maven",
+                "vscjava.vscode-gradle",
+                "ms-vscode.vscode-json",
+                "ms-vscode.vscode-xml",
+                "GitHub.copilot",
+                "GitHub.copilot-chat",
+                "redhat.fabric8-analytics",
+                "ms-vscode.vscode-yaml",
+                "ms-azuretools.vscode-docker"
+            ],
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash",
+                "java.configuration.updateBuildConfiguration": "automatic",
+                "java.server.launchMode": "Standard",
+                "editor.formatOnSave": true,
+                "editor.rulers": [
+                    120
+                ],
+                "[java]": {
+                    "editor.defaultFormatter": "redhat.java"
+                },
+                "[xml]": {
+                    "editor.defaultFormatter": "redhat.vscode-xml"
+                },
+                "[json]": {
+                    "editor.defaultFormatter": "ms-vscode.vscode-json"
+                },
+                "[yaml]": {
+                    "editor.defaultFormatter": "ms-vscode.vscode-yaml"
+                },
+                "java.compile.nullAnalysis.mode": "automatic",
+                "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
+                "java.format.settings.profile": "GoogleStyle"
+            }
+        }
+    },
+    "forwardPorts": [
+        8080,
+        8081,
+        8082,
+        5005
+    ],
+    "postCreateCommand": "bash /workspaces/.devcontainer/post-create.sh",
+    "mounts": [
+        "source=${localWorkspaceFolder},target=/workspaces,type=bind,consistency=cached"
+    ]
+}
